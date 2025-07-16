@@ -1,7 +1,7 @@
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("admin"); // <-- PASTIKAN BARIS INI ADA
+  eleventyConfig.addPassthroughCopy("admin");
 
 
   return {
