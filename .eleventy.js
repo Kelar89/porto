@@ -4,9 +4,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("admin");
 
   return {
-    // Bagian pathPrefix inilah yang akan memperbaiki semua link Anda
-    pathPrefix: "/porto/", 
-
+    // pathPrefix dihapus dari sini karena kita akan mengelolanya secara manual
     dir: {
       input: ".",
       includes: "_includes",
