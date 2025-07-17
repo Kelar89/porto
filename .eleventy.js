@@ -4,7 +4,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("admin");
 
   return {
-    // pathPrefix dihapus dari sini karena kita akan mengelolanya secara manual
     dir: {
       input: ".",
       includes: "_includes",
