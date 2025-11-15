@@ -24,6 +24,10 @@
 
     /* Ukuran */
     --navbar-height: 80px;
+
+    /* (BARU) Variabel untuk posisi mouse (didefinisikan oleh JS) */
+    --spotlight-x: 50%;
+    --spotlight-y: 50%;
 }
 
 /* Reset Dasar */
@@ -135,6 +139,12 @@ a {
 
 a:hover {
     color: var(--color-primary-teal-dark); 
+}
+
+/* (BARU) Menambahkan italic style untuk tag <em> */
+em {
+    font-style: italic;
+    color: var(--color-primary-teal); /* Beri sedikit aksen */
 }
 
 section {
@@ -565,77 +575,15 @@ body.loaded .navbar {
 
 
 /* ==============================================
-   7. FOOTER (KOMPONEN)
+   7. FOOTER (KOMPONEN) - DIHAPUS
    ============================================== */
-.footer-content {
-    background-color: var(--color-bg-secondary);
-    border-top: 1px solid var(--color-border);
-    padding-top: 4rem;
-    padding-bottom: 2rem;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 3rem;
-}
-
-.footer-brand {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    font-weight: 900;
-    color: var(--color-primary-teal); 
-    margin-bottom: 1rem;
-}
-
-.footer-about {
-    font-size: 0.95rem;
-    max-width: 350px;
-}
-
-.footer-heading {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-text-heading);
-    margin-bottom: 1.5rem;
-}
-
-.footer-links,
-.footer-contact {
-    list-style: none;
-}
-
-.footer-links li,
-.footer-contact li {
-    margin-bottom: 0.75rem;
-}
-
-.footer-links a,
-.footer-contact a {
-    font-size: 0.95rem;
-    color: var(--color-text);
-    text-decoration: none;
-}
-
-.footer-links a:hover,
-.footer-contact a:hover {
-    color: var(--color-text-heading);
-    text-decoration: underline;
-}
-
-.footer-contact strong {
-    color: var(--color-text-heading);
-}
-
-.footer-copyright {
-    border-top: 1px solid var(--color-border);
-    padding-top: 2rem;
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--color-text);
-}
+/* Aturan CSS untuk .footer-content, .footer-grid, .footer-col, 
+   .footer-brand, .footer-about, .footer-heading, 
+   .footer-links, .footer-contact, .footer-copyright 
+   TELAH DIHAPUS. 
+   
+   Diganti dengan aturan CSS baru di Section 23.
+*/
 
 /* ==============================================
    8. RESPONSIVE (TABLET & MOBILE)
@@ -650,9 +598,18 @@ body.loaded .navbar {
         grid-template-columns: 1fr; 
     }
 
-    .footer-grid {
-        grid-template-columns: 1fr; 
+    /* (BARU) Footer responsive */
+    .footer-bottom-bar {
+        flex-direction: column;
+        gap: 1.5rem;
     }
+    .footer-social-icons {
+        order: -1; /* Pindahkan ikon ke atas di mobile */
+    }
+    .footer-cta-box h2 {
+        font-size: 2.8rem;
+    }
+
 
     h1 { font-size: 3rem; }
     .hero-content-new h1 { font-size: 3.5rem; }
@@ -843,6 +800,17 @@ body.loaded .navbar {
         width: 16px;
         height: 16px;
     }
+
+    /* (BARU) Footer responsive mobile */
+    .footer-links-new {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1.5rem;
+    }
+    .footer-cta-box h2 {
+        font-size: 2.5rem;
+    }
+
 }
 
 
@@ -1757,5 +1725,120 @@ body.loaded .floating-button {
 
 .notification-time {
     font-size: 0.8rem;
+    color: var(--color-text);
+}
+
+/* ==============================================
+   23. (BARU) FOOTER INTERAKTIF
+   ============================================== */
+.footer-content-new {
+    background-color: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+    padding-top: 6rem;
+    position: relative;
+    overflow: hidden; 
+}
+
+/* Efek Spotlight Interaktif */
+.footer-spotlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none; /* Biar bisa klik tembus */
+    background: radial-gradient(
+        circle 400px at var(--spotlight-x) var(--spotlight-y),
+        var(--color-primary-teal-glow) 0%,
+        rgba(0, 0, 0, 0) 60%
+    );
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+.footer-content-new:hover .footer-spotlight {
+    opacity: 1;
+}
+
+
+/* Konten CTA */
+.footer-cta-box {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+    position: relative; /* Agar di atas spotlight */
+    z-index: 1;
+}
+.footer-tagline {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary-teal);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+}
+.footer-cta-box h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.3;
+    color: var(--color-text-heading);
+    margin-bottom: 1.5rem;
+}
+.footer-cta-box p {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Bar Bawah (Navigasi & Copyright) */
+.footer-bottom-bar {
+    border-top: 1px solid var(--color-border);
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Agar di atas spotlight */
+    z-index: 1;
+}
+
+.footer-links-new {
+    display: flex;
+    gap: 2rem;
+}
+.footer-links-new .nav-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    padding: 0;
+}
+.footer-links-new .nav-link:hover {
+    color: var(--color-text-heading);
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 1.5rem;
+}
+.footer-social-icons a {
+    color: var(--color-text);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.footer-social-icons a:hover {
+    color: var(--color-primary-teal);
+    transform: scale(1.1);
+}
+.footer-social-icons svg {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-copyright-new {
+    font-size: 0.9rem;
     color: var(--color-text);
 }

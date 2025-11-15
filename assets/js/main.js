@@ -8,6 +8,8 @@
  * 6. Lightbox (Pop-up Gambar)
  * 7. Tombol Melayang (WA & Scroll-to-Top)
  * 8. Notifikasi Dummy
+ * 9. Logika CTA Kontekstual (Frictionless Funnel)
+ * 10. (BARU) Logika Footer Interaktif
  */
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -16,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const preloader = document.getElementById('preloader');
     const body = document.body;
     
-    // Tampilkan body setelah preloader selesai (dipanggil di window.onload)
+    // Tampilkan body after preloader selesai (dipanggil di window.onload)
     function showContent() {
         if (preloader) {
             preloader.classList.add('hidden');
@@ -44,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     targetElement.innerHTML = data;
-                    if (callback) callback();
+                    if (callback) callback(); 
                 }
             })
             .catch(error => {
@@ -286,6 +288,65 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(showRandomNotification, nextInterval);
     }
 
+    /**
+     * --- 9. LOGIKA CTA KONTEKSTUAL (Frictionless Funnel) ---
+     */
+    function initializeContextualWA() {
+        const WA_BASE_URL = "https://wa.me/6285894448143";
+        const path = window.location.pathname;
+        const pageTitleElement = document.querySelector('h1');
+        
+        if (!pageTitleElement) return; // Keluar jika tidak ada H1
+
+        const pageTitle = pageTitleElement.innerText.trim();
+        let prefillText = "";
+
+        // Tentukan pre-fill text berdasarkan halaman
+        if (path.includes('/insights/')) {
+            prefillText = `Halo Umar, saya baru membaca artikel Anda tentang "${pageTitle}". Saya tertarik untuk berdiskusi.`;
+        } else if (path.includes('/portfolio/')) {
+            prefillText = `Halo Umar, saya baru melihat studi kasus Anda tentang "${pageTitle}". Saya tertarik untuk membahas strategi serupa untuk bisnis saya.`;
+        } else if (document.body.classList.contains('about-page')) {
+            prefillText = `Halo Umar, saya baru melihat halaman 'Tentang Saya' Anda dan tertarik untuk konsultasi.`;
+        } else if (document.body.classList.contains('home-page')) {
+            prefillText = `Halo Umar, saya baru membaca hook Anda di website: "${pageTitle}". Saya mengalami masalah serupa dan tertarik untuk konsultasi.`;
+        }
+
+        // Temukan semua tombol CTA kontekstual di halaman
+        const ctaButtons = document.querySelectorAll('.cta-contextual-wa');
+        
+        if (ctaButtons.length > 0 && prefillText !== "") {
+            const encodedText = encodeURIComponent(prefillText);
+            ctaButtons.forEach(button => {
+                button.href = `${WA_BASE_URL}?text=${encodedText}`;
+                button.target = "_blank"; // Pastikan terbuka di tab baru
+            });
+        }
+    }
+
+    /**
+     * --- 10. (BARU) LOGIKA FOOTER INTERAKTIF ---
+     */
+    function initializeInteractiveFooter() {
+        const footer = document.getElementById('footer-interactive');
+        const spotlight = footer ? footer.querySelector('.footer-spotlight') : null;
+
+        if (!footer || !spotlight) {
+            // console.log('Footer interaktif tidak ditemukan, membatalkan.');
+            return;
+        }
+
+        footer.addEventListener('mousemove', (e) => {
+            const rect = footer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Update posisi spotlight via CSS custom property
+            footer.style.setProperty('--spotlight-x', `${x}px`);
+            footer.style.setProperty('--spotlight-y', `${y}px`);
+        });
+    }
+
 
     // --- EKSEKUSI SEMUA FUNGSI ---
 
@@ -299,7 +360,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
         const footerPath = footerPlaceholder.getAttribute('data-component-path') || 'components/_footer.html';
-        loadComponent(footerPath, 'footer-placeholder');
+        // (PERUBAHAN): Panggil initializeInteractiveFooter HANYA SETELAH footer dimuat
+        loadComponent(footerPath, 'footer-placeholder', initializeInteractiveFooter);
     }
 
     // 2. Inisialisasi Fitur Halaman
@@ -308,6 +370,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initializeClickableImages();
     injectFloatingButtons();
     initializeScrollFeatures();
+    initializeContextualWA(); // Panggil fungsi CTA Kontekstual
 
     // 3. Mulai Notifikasi Dummy (setelah preloader selesai & ada jeda)
     body.classList.contains('loaded') 

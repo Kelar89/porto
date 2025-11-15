@@ -198,20 +198,20 @@
 
                     <h2>1. Website Caching yang Agresif (Masalah #1)</h2>
                     <p>
-                        <strong>Masalah:</strong> Marketer Anda baru saja meng-update *script* Meta Pixel di GTM 
-                        untuk melacak *event* "Purchase" baru. Tapi 3 hari kemudian, data tidak masuk. 
+                        <strong>Masalah:</strong> Marketer Anda baru saja meng-update <em>script</em> Meta Pixel di GTM 
+                        untuk melacak <em>event</em> "Purchase" baru. Tapi 3 hari kemudian, data tidak masuk. 
                         Mereka panik.
                     </p>
                     <p>
                         <strong>Akar Masalah (Teknis):</strong> Website Anda menggunakan Caching (seperti WP Rocket 
-                        atau Cloudflare) yang terlalu agresif. Versi *cached* dari halaman Anda masih 
-                        memuat *script* GTM yang *lama*. Pixel baru Anda tidak pernah ter-load oleh 
-                        pengguna, sehingga data *purchase* tidak terekam.
+                        atau Cloudflare) yang terlalu agresif. Versi <em>cached</em> dari halaman Anda masih 
+                        memuat <em>script</em> GTM yang <em>lama</em>. Pixel baru Anda tidak pernah ter-load oleh 
+                        pengguna, sehingga data <em>purchase</em> tidak terekam.
                     </p>
                     <p>
-                        <strong>Solusi Hybrid Saya:</strong> Saya tidak hanya menyalahkan *cache*. Saya akan masuk 
-                        ke server/plugin Anda, melakukan *purge* (pembersihan) *cache* secara manual, 
-                        dan mengatur *setting* agar file GTM dikecualikan dari *caching* di masa depan.
+                        <strong>Solusi Hybrid Saya:</strong> Saya tidak hanya menyalahkan <em>cache</em>. Saya akan masuk 
+                        ke server/plugin Anda, melakukan <em>purge</em> (pembersihan) <em>cache</em> secara manual, 
+                        dan mengatur <em>setting</em> agar file GTM dikecualikan dari <em>caching</em> di masa depan.
                     </p>
 
                     <h2>2. Event Listener GTM yang Gagal (Masalah #2)</h2>
@@ -220,35 +220,35 @@
                         tapi Anda hanya menerima 30 chat WA. Marketer Anda bilang "itu wajar".
                     </p>
                     <p>
-                        <strong>Akar Masalah (Teknis):</strong> Tombol WA di *landing page* Anda tidak 
-                        dibuat dengan benar. *Event listener* JavaScript yang seharusnya memicu 
+                        <strong>Akar Masalah (Teknis):</strong> Tombol WA di <em>landing page</em> Anda tidak 
+                        dibuat dengan benar. <em>Event listener</em> JavaScript yang seharusnya memicu 
                         Pixel "ClickToWA" gagal ter-trigger di beberapa browser (terutama browser 
                         dalam aplikasi seperti Instagram/Facebook). Iklan jalan terus, data tidak terekam, 
                         optimasi Anda hancur.
                     </p>
                     <p>
-                        <strong>Solusi Hybrid Saya:</strong> Saya akan membuka *console* developer, 
-                        menganalisis *script* tombol, dan menulis ulang *event listener* agar 
+                        <strong>Solusi Hybrid Saya:</strong> Saya akan membuka <em>console</em> developer, 
+                        menganalisis <em>script</em> tombol, dan menulis ulang <em>event listener</em> agar 
                         kompatibel 100% di semua browser. Saya juga akan mengimplementasikan 
-                        *server-side tracking* (via CAPI) agar data tetap terekam bahkan jika 
+                        <em>server-side tracking</em> (via CAPI) agar data tetap terekam bahkan jika 
                         browser memblokir Pixel.
                     </p>
 
                     <h2>3. Server Response Time yang Lambat (Masalah #3)</h2>
                     <p>
-                        <strong>Masalah:</strong> Iklan Anda ramai, tapi konversi di *landing page* hanya 0.5%. Marketer Anda menyalahkan *copywriting*.
+                        <strong>Masalah:</strong> Iklan Anda ramai, tapi konversi di <em>landing page</em> hanya 0.5%. Marketer Anda menyalahkan <em>copywriting</em>.
                     </p>
                     <p>
-                        <strong>Akar Masalah (Teknis):</strong> *Copywriting* Anda mungkin bagus, tapi 
+                        <strong>Akar Masalah (Teknis):</strong> <em>Copywriting</em> Anda mungkin bagus, tapi 
                         TTFB (Time to First Byte) server Anda 5 detik. Pengguna mengklik iklan Anda, 
-                        menunggu 5 detik di layar putih, lalu *bounce* (pergi) sebelum halaman 
+                        menunggu 5 detik di layar putih, lalu <em>bounce</em> (pergi) sebelum halaman 
                         sempat termuat. Anda membayar untuk klik yang tidak pernah melihat penawaran Anda.
                     </p>
                     <p>
-                        <strong>Solusi Hybrid Saya:</strong> Saya akan melakukan profil *database query* Anda, 
-                        meng-upgrade versi PHP, mengoptimasi gambar, dan mengkonfigurasi *server-level caching*. 
-                        Saya akan menurunkan TTFB dari 5 detik menjadi 500ms. Dengan *load time* yang cepat, 
-                        konversi Anda akan naik signifikan tanpa mengubah satu kata pun di *copywriting*.
+                        <strong>Solusi Hybrid Saya:</strong> Saya akan melakukan profil <em>database query</em> Anda, 
+                        meng-upgrade versi PHP, mengoptimasi gambar, dan mengkonfigurasi <em>server-level caching</em>. 
+                        Saya akan menurunkan TTFB dari 5 detik menjadi 500ms. Dengan <em>load time</em> yang cepat, 
+                        konversi Anda akan naik signifikan tanpa mengubah satu kata pun di <em>copywriting</em>.
                     </p>
                     
                     <hr>
@@ -259,10 +259,11 @@
                         menganalisis data. Saya bisa menganalisis DAN memperbaikinya.
                     </p>
                     <p>
-                        Jika Anda merasa iklan Anda *stuck* meski sudah mencoba segalanya, kemungkinan besar 
+                        Jika Anda merasa iklan Anda <em>stuck</em> meski sudah mencoba segalanya, kemungkinan besar 
                         masalahnya ada di sisi teknis.
                     </p>
-                    <a href="../contact.html" class="cta-button-secondary">Diskusikan Audit Teknis Gratis &rarr;</a>
+                    
+                    <a href="#" class="cta-button-secondary cta-contextual-wa">Diskusikan Audit Teknis Gratis &rarr;</a>
                 </div>
 
             </div>
