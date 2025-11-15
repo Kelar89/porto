@@ -9,7 +9,7 @@
  * 7. Tombol Melayang (WA & Scroll-to-Top)
  * 8. Notifikasi Dummy
  * 9. Logika CTA Kontekstual (Frictionless Funnel)
- * 10. (BARU) Logika Footer Interaktif
+ * 10. Logika Footer Interaktif
  */
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -309,7 +309,9 @@ document.addEventListener("DOMContentLoaded", function() {
         } else if (document.body.classList.contains('about-page')) {
             prefillText = `Halo Umar, saya baru melihat halaman 'Tentang Saya' Anda dan tertarik untuk konsultasi.`;
         } else if (document.body.classList.contains('home-page')) {
-            prefillText = `Halo Umar, saya baru membaca hook Anda di website: "${pageTitle}". Saya mengalami masalah serupa dan tertarik untuk konsultasi.`;
+            
+            // (PERUBAHAN DI SINI) Mengganti pre-fill text agar sesuai dengan hook baru
+            prefillText = `Halo Umar, saya baru mengunjungi website Anda. Saya tertarik membahas fondasi teknis (IT/Server/GTM) untuk bisnis saya.`;
         }
 
         // Temukan semua tombol CTA kontekstual di halaman

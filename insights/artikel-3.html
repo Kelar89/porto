@@ -183,45 +183,44 @@
 
                 <div class="article-body">
                     <p class="article-lead">
-                        Seorang klien mengeluh: "Iklan saya tidak perform!" Saya membuka dashboard-nya. 
-                        Kampanye A (materi iklan X) mendapatkan CPL (Cost per Lead) Rp 8.000. 
-                        Kampanye B (materi iklan Y) mendapatkan CPL Rp 80.000. Keduanya menggunakan audiens 
-                        yang sama.
+                        Klien: "Iklan saya tidak perform!"
+                        Saya buka dashboard: Kampanye A (CPL Rp 8.000) vs Kampanye B (CPL Rp 80.000).
+                        Audiens sama.
                     </p>
                     <p>
-                        Marketer mereka menyimpulkan: "Materi iklan Y jelek. Matikan."
+                        Marketer mereka menyimpulkan: "Materi iklan B jelek. Matikan."
                     </p>
                     <p>
                         Itu kesimpulan yang logis. Tapi itu salah.
                     </p>
 
-                    <h2>Data yang Salah Menghasilkan Keputusan yang Salah</h2>
+                    <h2>Data Sampah = Keputusan Sampah</h2>
                     <p>
                         Saya tidak melihat materi iklannya. Saya membuka Google Tag Manager (GTM) dan 
-                        *debugger console* di website mereka. Saya menemukan "biang kerok" yang 
+                        <em>debugger console</em> di website mereka. Saya menemukan "biang kerok" yang 
                         sesungguhnya.
                     </p>
                     <p>
-                        Kampanye A (CPL Rp 8.000) mengarah ke *landing page* lama.
-                        Kampanye B (CPL Rp 80.000) mengarah ke *landing page* baru yang "lebih bagus".
+                        Kampanye A (CPL Rp 8.000) mengarah ke <em>landing page</em> lama.
+                        Kampanye B (CPL Rp 80.000) mengarah ke <em>landing page</em> baru yang "lebih bagus".
                     </p>
                     <p>
-                        Di *landing page* lama, *event listener* untuk tombol WhatsApp di-setting dengan benar. 
-                        Setiap klik tombol akan memicu *event* Pixel "Lead_WA".
+                        Di <em>landing page</em> lama, <em>event listener</em> untuk tombol WhatsApp di-setting dengan benar. 
+                        Setiap klik tombol akan memicu <em>event</em> Pixel "Lead_WA".
                     </p>
                     <p>
-                        Di *landing page* baru, developer-nya hanya menaruh link `wa.me` biasa tanpa 
-                        konfigurasi *event listener* yang tepat di GTM.
+                        Di <em>landing page</em> baru, developer-nya hanya menaruh link <em>wa.me</em> biasa tanpa 
+                        konfigurasi <em>event listener</em> yang tepat di GTM.
                     </p>
 
-                    <h2>Apa Akibatnya?</h2>
+                    <h2>Apa Akibatnya? Data Anda Berbohong</h2>
                     <p>
-                        <strong>Kampanye A (Lama):</strong> 100 orang klik, 100 *event* "Lead_WA" terekam. 
+                        <strong>Kampanye A (Lama):</strong> 100 orang klik, 100 <em>event</em> "Lead_WA" terekam. 
                         Meta Ads belajar dengan data yang akurat. CPL Rp 8.000.
                     </p>
                     <p>
-                        <strong>Kampanye B (Baru):</strong> 100 orang klik, tapi hanya 10 *event* "Lead_WA" 
-                        yang terekam (mungkin karena *event* lain, bukan dari klik tombol). 
+                        <strong>Kampanye B (Baru):</strong> 100 orang klik, tapi hanya 10 <em>event</em> "Lead_WA" 
+                        yang terekam (mungkin karena <em>event</em> lain, bukan dari klik tombol). 
                         90 klik lainnya "hilang" dari data. Meta Ads mengira iklan ini gagal total, 
                         padahal performanya mungkin sama bagusnya. CPL melambung menjadi Rp 80.000.
                     </p>
@@ -230,18 +229,18 @@
                         karena data yang mereka baca salah.
                     </p>
 
-                    <h2>Solusi Hybrid Saya</h2>
+                    <h2>Solusi Hybrid Saya: Perbaiki GTM, Bukan Iklannya</h2>
                     <p>
-                        Ini bukan masalah *marketing*, ini masalah *teknis*.
+                        Ini bukan masalah <em>marketing</em>, ini masalah <em>teknis</em>.
                     </p>
                     <ul>
                         <li>
-                            Saya membuka GTM dan membuat *trigger* baru yang secara spesifik mendeteksi 
-                            klik pada tombol WA di *landing page* baru.
+                            Saya membuka GTM dan membuat <em>trigger</em> baru yang secara spesifik mendeteksi 
+                            klik pada tombol WA di <em>landing page</em> baru.
                         </li>
                         <li>
-                            Saya meng-implementasikan *Custom Event* "Lead_WA_New" dan men-debugnya 
-                            secara *real-time* untuk memastikan 100% klik terekam.
+                            Saya meng-implementasikan <em>Custom Event</em> "Lead_WA_New" dan men-debugnya 
+                            secara <em>real-time</em> untuk memastikan 100% klik terekam.
                         </li>
                         <li>
                             Dalam 2 hari, CPL di Kampanye B turun dari Rp 80.000 menjadi Rp 8.500, 
@@ -252,7 +251,7 @@
                     <hr>
                     <p>
                         Jangan percaya 100% pada dashboard Ads Anda sebelum Anda yakin data yang masuk 
-                        100% akurat. Jika Anda memiliki keahlian *hybrid*, Anda tidak hanya membaca 
+                        100% akurat. Jika Anda memiliki keahlian <em>hybrid</em>, Anda tidak hanya membaca 
                         laporan; Anda memvalidasi datanya.
                     </p>
                     

@@ -183,22 +183,21 @@
 
                 <div class="article-body">
                     <p class="article-lead">
-                        Anda sudah menghabiskan jutaan rupiah. Anda sudah melakukan A/B testing materi iklan. 
-                        Audiens Anda (Lookalike, Custom Audience) sudah 100% tepat. Tapi hasilnya tetap boncos. 
-                        Marketer Anda menyalahkan "kreatif yang jenuh" atau "audiens yang lelah".
+                        Jutaan rupiah habis. A/B testing sudah. Audiens <em>Lookalike</em> tepat. Hasil: Boncos.
+                        Marketer Anda menyalahkan "kreatif jenuh" atau "audiens lelah".
                     </p>
                     <p>
-                        Bagaimana jika saya beritahu bahwa masalahnya bukan di Facebook? Bagaimana jika masalahnya 
-                        ada di website Anda, dan marketer Anda tidak tahu cara memperbaikinya?
+                        Bagaimana jika saya beritahu bahwa masalahnya bukan di Meta Ads? Bagaimana jika masalahnya 
+                        ada di website Anda, dan marketer Anda tidak tahu (atau tidak mau tahu) cara memperbaikinya?
                     </p>
                     <p>
                         Sebagai seorang hybrid IT & Marketer, saya menemukan 90% kegagalan iklan berakar 
                         dari 3 masalah teknis yang sering diabaikan ini.
                     </p>
 
-                    <h2>1. Website Caching yang Agresif (Masalah #1)</h2>
+                    <h2>1. Musuh #1: Cache Website yang Agresif</h2>
                     <p>
-                        <strong>Masalah:</strong> Marketer Anda baru saja meng-update <em>script</em> Meta Pixel di GTM 
+                        <strong>Skenario:</strong> Marketer Anda baru saja meng-update <em>script</em> Meta Pixel di GTM 
                         untuk melacak <em>event</em> "Purchase" baru. Tapi 3 hari kemudian, data tidak masuk. 
                         Mereka panik.
                     </p>
@@ -211,19 +210,19 @@
                     <p>
                         <strong>Solusi Hybrid Saya:</strong> Saya tidak hanya menyalahkan <em>cache</em>. Saya akan masuk 
                         ke server/plugin Anda, melakukan <em>purge</em> (pembersihan) <em>cache</em> secara manual, 
-                        dan mengatur <em>setting</em> agar file GTM dikecualikan dari <em>caching</em> di masa depan.
+                        dan mengatur <em>setting</em> agar file GTM dikecualikan dari <em>caching</em> di masa depan. Iklan lanjut.
                     </p>
 
-                    <h2>2. Event Listener GTM yang Gagal (Masalah #2)</h2>
+                    <h2>2. Musuh #2: Tracking 'Buta' (Event GTM Gagal)</h2>
                     <p>
-                        <strong>Masalah:</strong> Iklan Click-to-WA Anda berjalan. Facebook melaporkan 150 klik, 
-                        tapi Anda hanya menerima 30 chat WA. Marketer Anda bilang "itu wajar".
+                        <strong>Skenario:</strong> Iklan Click-to-WA Anda berjalan. Facebook melaporkan 150 klik, 
+                        tapi Anda hanya menerima 30 chat WA. Marketer Anda bilang, "Itu wajar, datanya delay."
                     </p>
                     <p>
-                        <strong>Akar Masalah (Teknis):</strong> Tombol WA di <em>landing page</em> Anda tidak 
+                        <strong>Akar Masalah (Teknis):</strong> Itu tidak wajar. Tombol WA di <em>landing page</em> Anda tidak 
                         dibuat dengan benar. <em>Event listener</em> JavaScript yang seharusnya memicu 
                         Pixel "ClickToWA" gagal ter-trigger di beberapa browser (terutama browser 
-                        dalam aplikasi seperti Instagram/Facebook). Iklan jalan terus, data tidak terekam, 
+                        dalam aplikasi seperti Instagram). Iklan jalan terus, data tidak terekam, 
                         optimasi Anda hancur.
                     </p>
                     <p>
@@ -234,9 +233,9 @@
                         browser memblokir Pixel.
                     </p>
 
-                    <h2>3. Server Response Time yang Lambat (Masalah #3)</h2>
+                    <h2>3. Musuh #3: Server Lambat = Uang Terbakar</h2>
                     <p>
-                        <strong>Masalah:</strong> Iklan Anda ramai, tapi konversi di <em>landing page</em> hanya 0.5%. Marketer Anda menyalahkan <em>copywriting</em>.
+                        <strong>Skenario:</strong> Iklan Anda ramai, tapi konversi di <em>landing page</em> hanya 0.5%. Marketer Anda menyalahkan <em>copywriting</em>.
                     </p>
                     <p>
                         <strong>Akar Masalah (Teknis):</strong> <em>Copywriting</em> Anda mungkin bagus, tapi 
@@ -247,13 +246,13 @@
                     <p>
                         <strong>Solusi Hybrid Saya:</strong> Saya akan melakukan profil <em>database query</em> Anda, 
                         meng-upgrade versi PHP, mengoptimasi gambar, dan mengkonfigurasi <em>server-level caching</em>. 
-                        Saya akan menurunkan TTFB dari 5 detik menjadi 500ms. Dengan <em>load time</em> yang cepat, 
-                        konversi Anda akan naik signifikan tanpa mengubah satu kata pun di <em>copywriting</em>.
+                        Saya akan menurunkan TTFB dari 5 detik menjadi < 500ms. 
+                        Konversi Anda akan naik signifikan tanpa mengubah satu kata pun di <em>copywriting</em>.
                     </p>
                     
                     <hr>
 
-                    <h2>Berhenti Membuang Anggaran Iklan</h2>
+                    <h2>Stop Bakar Uang. Perbaiki Fondasinya.</h2>
                     <p>
                         Berhenti membuang anggaran iklan pada fondasi teknis yang rusak. Marketer biasa hanya bisa 
                         menganalisis data. Saya bisa menganalisis DAN memperbaikinya.
