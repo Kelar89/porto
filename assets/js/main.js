@@ -8,7 +8,7 @@
  * 6. Lightbox (Pop-up Gambar)
  * 7. Tombol Melayang (WA & Scroll-to-Top)
  * 8. Notifikasi Dummy
- * 9. Logika CTA Kontekstual (Frictionless Funnel)
+ * 9. Logika CTA Kontekstual (Frictionless Funnel) -> (DIUBAH)
  * 10. Logika Footer Interaktif
  */
 
@@ -107,7 +107,8 @@ document.addEventListener("DOMContentLoaded", function() {
      * Fungsi untuk menginisialisasi observer animasi fade-in
      */
     function initializeFadeInObserver() {
-        const sectionsToAnimate = document.querySelectorAll('.stats-section, .portfolio-preview-section, .usp-section, .skills-section, .experience-section, .pricing-section, .contact-section, .case-study-content-section, .case-study-nav, .comparison-section, .testimonial-section');
+        // (UPDATE) Tambahkan .client-logo-section ke daftar animasi
+        const sectionsToAnimate = document.querySelectorAll('.stats-section, .portfolio-preview-section, .usp-section, .skills-section, .experience-section, .pricing-section, .contact-section, .case-study-content-section, .case-study-nav, .comparison-section, .testimonial-section, .client-logo-section');
         const options = {
             root: null, 
             rootMargin: '0px',
@@ -289,42 +290,30 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     /**
-     * --- 9. LOGIKA CTA KONTEKSTUAL (Frictionless Funnel) ---
+     * --- 9. (REVISI) LOGIKA CTA KONTEKSTUAL (Frictionless Funnel) ---
+     * Mengarahkan SEMUA cta-contextual-wa ke halaman contact.html (Audit Form),
+     * dengan path yang disesuaikan (root vs subdirektori).
      */
     function initializeContextualWA() {
-        const WA_BASE_URL = "https://wa.me/6285894448143";
         const path = window.location.pathname;
-        const pageTitleElement = document.querySelector('h1');
-        
-        if (!pageTitleElement) return; // Keluar jika tidak ada H1
-
-        const pageTitle = pageTitleElement.innerText.trim();
-        let prefillText = "";
-
-        // Tentukan pre-fill text berdasarkan halaman
-        if (path.includes('/insights/')) {
-            prefillText = `Halo Umar, saya baru membaca artikel Anda tentang "${pageTitle}". Saya tertarik untuk berdiskusi.`;
-        } else if (path.includes('/portfolio/')) {
-            prefillText = `Halo Umar, saya baru melihat studi kasus Anda tentang "${pageTitle}". Saya tertarik untuk membahas strategi serupa untuk bisnis saya.`;
-        } else if (document.body.classList.contains('about-page')) {
-            prefillText = `Halo Umar, saya baru melihat halaman 'Tentang Saya' Anda dan tertarik untuk konsultasi.`;
-        } else if (document.body.classList.contains('home-page')) {
-            
-            // (PERUBAHAN DI SINI) Mengganti pre-fill text agar sesuai dengan hook baru
-            prefillText = `Halo Umar, saya baru mengunjungi website Anda. Saya tertarik membahas fondasi teknis (IT/Server/GTM) untuk bisnis saya.`;
-        }
-
-        // Temukan semua tombol CTA kontekstual di halaman
         const ctaButtons = document.querySelectorAll('.cta-contextual-wa');
         
-        if (ctaButtons.length > 0 && prefillText !== "") {
-            const encodedText = encodeURIComponent(prefillText);
-            ctaButtons.forEach(button => {
-                button.href = `${WA_BASE_URL}?text=${encodedText}`;
-                button.target = "_blank"; // Pastikan terbuka di tab baru
-            });
+        if (ctaButtons.length === 0) return; // Keluar jika tidak ada tombol
+
+        let contactPageUrl = "contact.html"; // Default untuk root pages
+
+        // Cek apakah kita berada di dalam subdirektori
+        if (path.includes('/insights/') || path.includes('/portfolio/')) {
+            contactPageUrl = "../contact.html"; // Sesuaikan path untuk subdirektori
         }
+
+        ctaButtons.forEach(button => {
+            button.href = contactPageUrl;
+            // (DIHAPUS) Tidak perlu target="_blank" lagi karena ini link internal
+            // button.target = "_blank"; 
+        });
     }
+
 
     /**
      * --- 10. (BARU) LOGIKA FOOTER INTERAKTIF ---
@@ -372,7 +361,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initializeClickableImages();
     injectFloatingButtons();
     initializeScrollFeatures();
-    initializeContextualWA(); // Panggil fungsi CTA Kontekstual
+    initializeContextualWA(); // Panggil fungsi CTA Kontekstual yang sudah di-update
 
     // 3. Mulai Notifikasi Dummy (setelah preloader selesai & ada jeda)
     body.classList.contains('loaded') 

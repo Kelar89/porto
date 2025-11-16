@@ -418,7 +418,7 @@ body.loaded .navbar {
     opacity: 0.7;
 }
 
-/* Tagline di atas H1 */
+/* Tagline di atas H1 (digunakan di halaman lain, tetap ada) */
 .hero-tagline {
     font-family: var(--font-heading);
     font-size: 0.9rem;
@@ -811,6 +811,28 @@ body.loaded .navbar {
         font-size: 2.5rem;
     }
 
+    /* (BARU) Responsive Logo Klien */
+    .client-logo-grid {
+        gap: 1.5rem;
+    }
+    .client-logo-item {
+        font-size: 0.9rem;
+    }
+
+    /* (BARU) Responsive Metrik Portofolio */
+    .portfolio-metric-highlight {
+        min-height: auto; /* Hapus tinggi minimum */
+        padding: 1rem 0; /* Kurangi padding */
+        gap: 0.25rem;
+        flex-direction: row; /* Buat jadi baris */
+        align-items: baseline;
+    }
+    .portfolio-metric-highlight .metric-value {
+        font-size: 2rem; /* Kecilkan font */
+    }
+    .portfolio-metric-highlight .metric-label {
+        font-size: 1rem;
+    }
 }
 
 
@@ -1348,7 +1370,9 @@ body.loaded .navbar {
 .case-study-content-section,
 .case-study-nav,
 .comparison-section, 
-.testimonial-section { 
+.testimonial-section,
+.client-logo-section /* (BARU) Tambahkan section logo ke animasi fade-in */
+{ 
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -1364,7 +1388,9 @@ body.loaded .navbar {
 .case-study-content-section.is-visible,
 .case-study-nav.is-visible,
 .comparison-section.is-visible,
-.testimonial-section.is-visible { 
+.testimonial-section.is-visible,
+.client-logo-section.is-visible /* (BARU) Tambahkan section logo ke animasi fade-in */
+{ 
     opacity: 1;
     transform: translateY(0);
 }
@@ -1841,4 +1867,229 @@ body.loaded .floating-button {
 .footer-copyright-new {
     font-size: 0.9rem;
     color: var(--color-text);
+}
+
+
+/* ==============================================
+   (BARU) HERO ROLLING BADGE (DARI PERMINTAAN)
+   ============================================== */
+.hero-rolling-badge-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 2.5rem; /* Tinggi tetap agar layout tidak 'loncat' */
+    overflow: hidden; /* Sembunyikan teks lain */
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+.hero-rolling-badge-prefix {
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.hero-rolling-badge-list {
+    /* Animasi bergulir ke atas */
+    animation: roll-up 12s infinite ease-in-out;
+}
+
+.hero-rolling-badge-list span {
+    display: block;
+    line-height: 2.5rem; /* Sesuaikan dengan height wrapper */
+    font-size: 1.1rem;
+    color: var(--color-primary-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Animasi Keyframes untuk Teks Bergulir */
+@keyframes roll-up {
+    0% { transform: translateY(0); }
+    10% { transform: translateY(0); } /* Pause di item 1 */
+    
+    25% { transform: translateY(-2.5rem); } /* Pindah ke item 2 */
+    35% { transform: translateY(-2.5rem); } /* Pause di item 2 */
+
+    50% { transform: translateY(-5rem); } /* Pindah ke item 3 */
+    60% { transform: translateY(-5rem); } /* Pause di item 3 */
+    
+    75% { transform: translateY(-7.5rem); } /* Pindah ke item 4 */
+    85% { transform: translateY(-7.5rem); } /* Pause di item 4 */
+
+    100% { transform: translateY(-10rem); } /* Pindah ke duplikat (untuk loop) */
+}
+
+/* Modifikasi Hero H1 agar lebih brutal */
+.hero-content-new h1 {
+    font-size: 3.8rem; /* Sedikit lebih kecil agar pas */
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1.5rem; 
+}
+
+/* Sesuaikan H1 di mobile */
+@media (max-width: 768px) {
+    .hero-content-new h1 {
+        font-size: 2.5rem; /* Disesuaikan agar pas */
+    }
+    .hero-rolling-badge-wrapper {
+        justify-content: center;
+    }
+}
+
+/* ==============================================
+   (BARU) FITUR #3: STATS BEFORE/AFTER
+   ============================================== */
+.stat-item.before-after-stat {
+    padding: 2rem;
+}
+/* (BARU) Penambahan Ikon di Statistik */
+.stat-icon {
+    margin-bottom: 1rem;
+    color: var(--color-primary-teal);
+}
+.stat-icon svg {
+    width: 36px;
+    height: 36px;
+}
+.stat-item .stat-label {
+    font-size: 1.1rem; 
+    margin-bottom: 1.5rem;
+    color: var(--color-text-heading);
+}
+.stat-metrics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+.metric-before {
+    font-size: 2.5rem;
+    color: var(--color-accent-red); /* Merah untuk 'Sebelum' */
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+.metric-arrow {
+    font-size: 2rem;
+    color: var(--color-text);
+}
+.metric-after {
+    font-size: 3.5rem;
+    color: var(--color-primary-teal); /* Teal untuk 'Sesudah' */
+}
+.stat-context {
+    font-size: 0.9rem;
+}
+
+/* ==============================================
+   (BARU) FITUR #4: LOGO KLIEN (LOGO SCROLLER)
+   ============================================== */
+.client-logo-section {
+    padding: 4rem 0;
+    background-color: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden; /* Sembunyikan overflow dari scroller */
+}
+.client-logo-title {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-primary-teal);
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Wrapper untuk efek fade di tepi */
+.logo-scroller-wrapper {
+    position: relative;
+    width: 100%;
+    /* Efek fade di tepi kiri dan kanan */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.logo-scroller {
+    display: flex;
+    width: max-content;
+    /* Animasi scrolling */
+    animation: scroll-x 30s linear infinite;
+}
+
+.logo-scroller span {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    opacity: 0.7;
+    margin: 0 2.5rem; /* Jarak antar logo/nama */
+    white-space: nowrap; /* Pastikan nama tidak terpotong */
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+.logo-scroller:hover span {
+    opacity: 1;
+    color: var(--color-text-heading);
+}
+
+/* Pemisah visual antar logo (opsional, tapi premium) */
+.scroller-separator {
+    width: 1px;
+    height: 20px; /* Tinggi pemisah */
+    background-color: var(--color-border);
+    align-self: center;
+    transform: rotate(20deg);
+}
+
+/* Keyframes untuk animasi scrolling horizontal */
+@keyframes scroll-x {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Geser ke kiri sejauh setengah dari total lebar */
+        /* (Karena kita punya 2 set daftar logo) */
+        transform: translateX(-50%);
+    }
+}
+
+/* Hentikan animasi saat di-hover */
+.logo-scroller-wrapper:hover .logo-scroller {
+    animation-play-state: paused;
+}
+
+
+/* ==============================================
+   (BARU) FITUR #14: METRIK KARTU PORTOFOLIO
+   ============================================== */
+.portfolio-metric-highlight {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 120px; /* Jaga ketinggian agar seragam */
+}
+.portfolio-metric-highlight .metric-value {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-primary-teal);
+    line-height: 1.1;
+}
+.portfolio-metric-highlight .metric-label {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-heading);
 }
