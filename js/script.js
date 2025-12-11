@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     };
 
-    // --- 3. DATA DOCUMENT SERVICES (NEW) ---
+    // --- 3. DATA DOCUMENT SERVICES ---
     const docServices = {
         'pdf': {
             title: "Beresin PDF Ribet", icon: '<i class="ph-fill ph-file-pdf"></i>', desc: "File PDF berantakan? Saya rapikan layout, gabungkan file, atau perkecil ukuran file agar siap kirim.",
