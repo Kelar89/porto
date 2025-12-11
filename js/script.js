@@ -1,4 +1,4 @@
-// --- LOADING BAR LOGIC (MUST BE TOP) ---
+// --- LOADING BAR ---
 (function() {
     const bar = document.getElementById('loading-bar');
     let width = 10;
@@ -6,7 +6,6 @@
         if (width >= 90) clearInterval(interval);
         else { width += Math.random() * 10; if (width > 90) width = 90; bar.style.width = width + '%'; }
     }, 500);
-
     window.addEventListener('load', () => {
         clearInterval(interval);
         bar.style.width = '100%';
@@ -16,7 +15,7 @@
 
 document.addEventListener('DOMContentLoaded', function(){
     
-    // --- DATA PROJECT PORTFOLIO ---
+    // --- 1. DATA PROJECT PORTFOLIO ---
     const projects = [
         {
             id: 1, category: 'ads', size: 'col-span-1 md:col-span-2',
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     ];
 
-    // --- DATA VIRTUAL ASSISTANT ---
+    // --- 2. DATA VIRTUAL ASSISTANT (VA) ---
     const vaServices = {
         'schedule': {
             title: "Manajemen Jadwal", icon: '<i class="ph-fill ph-calendar-check"></i>', desc: "Saya pastikan jadwal kamu rapi, tidak bentrok, dan kamu selalu ingat meeting penting.",
@@ -60,7 +59,27 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     };
 
-    // --- DATA CORE EXPERTISE ---
+    // --- 3. DATA DOCUMENT SERVICES (NEW) ---
+    const docServices = {
+        'pdf': {
+            title: "Beresin PDF Ribet", icon: '<i class="ph-fill ph-file-pdf"></i>', desc: "File PDF berantakan? Saya rapikan layout, gabungkan file, atau perkecil ukuran file agar siap kirim.",
+            points: ["Gabung & Pisah Halaman PDF", "Kompresi Ukuran File", "Convert Word/Excel ke PDF", "Edit Teks di PDF"]
+        },
+        'cv': {
+            title: "Desain CV & Profil Usaha", icon: '<i class="ph-fill ph-user-rectangle"></i>', desc: "Tampil profesional di mata HRD atau Klien dengan desain dokumen yang modern dan meyakinkan.",
+            points: ["Redesign CV ATS Friendly", "Pembuatan Company Profile", "Desain Proposal Penawaran", "Layout Presentasi PPT"]
+        },
+        'form': {
+            title: "Formulir Digital", icon: '<i class="ph-fill ph-list-checks"></i>', desc: "Pindahkan formulir kertas ke digital agar data langsung masuk database dan mudah diolah.",
+            points: ["Pembuatan Google Form Rapi", "Integrasi ke Spreadsheet", "Setting Notifikasi Email", "Desain Kuesioner"]
+        },
+        'maps': {
+            title: "Google Maps Optimization", icon: '<i class="ph-fill ph-map-pin"></i>', desc: "Pastikan bisnis Anda muncul di pencarian lokal dengan profil Google Business yang terawat.",
+            points: ["Verifikasi Lokasi", "Optimasi Keyword Lokal", "Upload Foto Produk/Lokasi", "Balas Review Otomatis"]
+        }
+    };
+
+    // --- 4. DATA CORE EXPERTISE ---
     const expertiseData = {
         'meta': {
             title: "Meta Ads Mastery", icon: '<i class="ph-fill ph-meta-logo text-blue-500"></i>',
@@ -84,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     };
 
-    // --- RENDER PORTFOLIO ---
+    // --- 5. RENDER PORTFOLIO ---
     const container = document.getElementById('portfolio-container');
     const filterBtns = document.querySelectorAll('.filter-btn');
 
@@ -116,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     });
 
-    // --- MODAL LOGIC ---
+    // --- 6. UNIFIED MODAL LOGIC ---
     const modal = document.getElementById('info-modal');
     const modalBox = document.getElementById('modal-box');
     const modalImgContainer = document.getElementById('modal-img-container');
@@ -147,6 +166,12 @@ document.addEventListener('DOMContentLoaded', function(){
         setupTextModal(data, "VA Service", "Hire Untuk Ini");
     };
 
+    // Doc Services Modal
+    window.openDocModal = (key) => {
+        const data = docServices[key];
+        setupTextModal(data, "Document Service", "Bantu Saya");
+    };
+
     // Expertise Modal
     window.openExpertiseModal = (key) => {
         const data = expertiseData[key];
@@ -167,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function(){
         document.getElementById('modal-body').innerHTML = `
             <p class="text-base text-muted mb-6">${data.desc}</p>
             <div class="bg-bento-bg p-6 rounded-xl border border-bento-border">
-                <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-4">Job Scope:</h4>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-4">Scope of Work:</h4>
                 <ul class="space-y-3 text-sm text-gray-400">${listHtml}</ul>
             </div>`;
             
@@ -190,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function(){
     };
     modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
 
-    // --- CONTACT ACTIONS ---
+    // --- 7. CONTACT ACTIONS ---
     window.sendWA = (msg) => {
         const phone = "6285894448143";
         window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
@@ -200,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function(){
         window.open(`mailto:kingshisha.indonesia@gmail.com?subject=Inquiry%20from%20Portfolio&body=Halo%20Ami%2C%0A%0ASaya%20tertarik%20untuk...`, '_blank');
     };
 
-    // --- BACK TO TOP ---
+    // --- 8. BACK TO TOP ---
     const backToTopBtn = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
