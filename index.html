@@ -21,7 +21,8 @@
             'bento-border': '#1f1f1f',
             'gold': '#D4AF37',
             'gold-glow': 'rgba(212, 175, 55, 0.5)',
-            'muted': '#888888'
+            'muted': '#888888',
+            'warning': '#FF5757'
           },
           fontFamily: { 
             sans: ['DM Sans', 'sans-serif'],
@@ -40,25 +41,19 @@
     <div id="loading-bar" class="h-full bg-gold shadow-[0_0_10px_#D4AF37] transition-all duration-300 ease-out" style="width: 0%"></div>
   </div>
 
-  <main class="max-w-7xl w-full grid grid-cols-1 md:grid-cols-4 gap-6 animate-fade-in pb-20">
+  <main class="max-w-7xl w-full grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 animate-fade-in pb-20">
 
     <div class="col-span-1 md:col-span-2 row-span-2 bg-bento-card border border-bento-border rounded-[2.5rem] p-8 md:p-10 relative group overflow-visible mt-24 md:mt-0 flex flex-col justify-end h-auto min-h-[600px]">
-      
       <div class="absolute -top-16 left-1/2 -translate-x-1/2 md:left-10 md:translate-x-0 w-40 md:w-40 aspect-[2/3] rounded-2xl border-4 border-bento-bg shadow-2xl z-20 overflow-hidden transform group-hover:scale-105 group-hover:-rotate-1 transition-all duration-500 ring-1 ring-gold/20">
         <img src="images/profile.png" onerror="this.src='https://placehold.co/300x450/111/444?text=Ami+2x3'" class="w-full h-full object-cover" alt="Ami Umar" loading="eager">
       </div>
-
       <div class="md:absolute md:top-10 md:right-10 mt-56 md:mt-0 flex justify-center md:block mb-8 md:mb-0 relative z-30">
         <button onclick="sendWA('Halo Ami, saya tertarik hire Anda sebagai partner digital.')" class="flex items-center gap-3 px-8 py-3 bg-white text-black rounded-full font-bold text-sm hover:bg-gold transition shadow-xl hover:-translate-y-1 font-display group/btn relative overflow-hidden">
-          Hire Me Now
-          <i class="ph-bold ph-arrow-up-right text-lg"></i>
+          Hire Me Now <i class="ph-bold ph-arrow-up-right text-lg"></i>
         </button>
       </div>
-
       <div class="relative z-10 text-center md:text-left mt-4 md:mt-0">
-        <h1 class="font-display text-5xl md:text-7xl font-extrabold mb-4 tracking-tight leading-none text-white">
-          Ami Umar.
-        </h1>
+        <h1 class="font-display text-5xl md:text-7xl font-extrabold mb-4 tracking-tight leading-none text-white">Ami Umar.</h1>
         <div class="flex items-center justify-center md:justify-start gap-4 mb-8">
           <span class="h-px w-12 bg-gold"></span>
           <h2 class="text-gold font-bold uppercase tracking-widest text-xs md:text-sm">Profit-Driven Growth Partner</h2>
@@ -74,41 +69,40 @@
 
     <div class="col-span-1 md:col-span-2 grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 gap-3 h-full min-h-[200px]">
       
-      <div class="bg-bento-card border border-bento-border rounded-[1.5rem] p-5 flex flex-col items-center justify-center gap-2 relative overflow-hidden group hover:border-green-500/30 transition-all">
+      <div class="bg-bento-card border border-bento-border rounded-[1.5rem] p-5 flex flex-col items-center justify-center gap-3 relative overflow-hidden group hover:border-green-500/30 transition-all text-center">
         <div class="absolute inset-0 bg-green-500/5 group-hover:bg-green-500/10 transition-colors"></div>
-        <span class="relative flex h-3 w-3">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-        </span>
-        <h3 class="font-display text-xs font-bold uppercase tracking-widest text-green-400 text-center">Available</h3>
+        <div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-400 animate-pulse-glow">
+            <i class="ph-fill ph-check-circle text-2xl"></i>
+        </div>
+        <h3 class="font-display text-xs font-bold uppercase tracking-widest text-green-400">Available</h3>
       </div>
 
-      <div class="bg-bento-card border border-bento-border rounded-[1.5rem] p-5 flex flex-col justify-center relative overflow-hidden group hover:border-gold/30 transition-all text-center">
-        <div class="absolute top-2 bottom-2 left-2 w-[2px] bg-gradient-to-b from-transparent via-gold/30 to-transparent"></div>
+      <div class="bg-bento-card border-2 border-warning/30 rounded-[1.5rem] p-5 flex flex-col items-center justify-center relative overflow-hidden group hover:border-warning/60 transition-all text-center bg-warning/5">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9IiNmZjU3NTciIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9zdmc+')] opacity-30"></div>
         
-        <h3 class="font-display text-3xl font-bold text-white leading-none mb-1">3 Slot</h3>
-        <p class="text-[9px] text-muted uppercase tracking-wider font-bold">Tersisa Bulan Ini</p>
-        <div class="flex justify-center gap-1 mt-3">
-            <div class="h-1.5 w-4 bg-gold rounded-full animate-pulse"></div>
-            <div class="h-1.5 w-4 bg-gold rounded-full animate-pulse delay-100"></div>
-            <div class="h-1.5 w-4 bg-gold rounded-full animate-pulse delay-200"></div>
-            <div class="h-1.5 w-4 bg-bento-border rounded-full"></div>
+        <div class="inline-flex items-center gap-2 bg-warning/20 px-3 py-1 rounded-full border border-warning/50 mb-2 animate-pulse">
+             <i class="ph-fill ph-warning-circle text-warning text-xs"></i>
+             <span class="text-[10px] font-bold text-warning uppercase tracking-wider">Limited</span>
+        </div>
+        
+        <h3 class="font-display text-4xl font-black text-white leading-none mb-1 tracking-tighter drop-shadow-[0_0_10px_rgba(255,87,87,0.5)]">3</h3>
+        <p class="text-[9px] text-warning uppercase tracking-wider font-bold">Slot Tersisa</p>
+      </div>
+
+      <div class="bg-bento-card border border-bento-border rounded-[1.5rem] p-5 flex flex-col items-center justify-center gap-2 relative overflow-hidden group hover:border-blue-500/30 transition-all text-center">
+        <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 mb-1">
+             <i class="ph-fill ph-medal text-2xl"></i>
+        </div>
+        <div>
+            <h3 class="font-display text-2xl font-bold text-white leading-none mb-1"><span class="text-blue-400">5+</span> Years</h3>
+            <p class="text-[9px] text-muted uppercase tracking-wider font-bold">Experience</p>
         </div>
       </div>
-
-      <div class="bg-bento-card border border-bento-border rounded-[1.5rem] p-5 flex flex-col justify-center relative overflow-hidden group hover:border-blue-500/30 transition-all text-center">
-        <div class="absolute -right-2 -bottom-6 text-[7rem] font-display font-black text-bento-border/40 opacity-30 select-none pointer-events-none group-hover:text-blue-500/10 transition-colors">5</div>
-        <h3 class="font-display text-3xl font-bold text-white leading-none mb-1 relative z-10"><span class="text-blue-400">5+</span> Years</h3>
-        <p class="text-[9px] text-muted uppercase tracking-wider font-bold relative z-10">Pro Experience</p>
-      </div>
-
     </div>
 
     <div class="col-span-1 md:col-span-2 bg-bento-card border border-bento-border rounded-[2.5rem] p-8 flex flex-col justify-center hover:border-gold/30 transition-colors min-h-[380px]">
       <div class="flex justify-between items-center mb-8">
-        <h3 class="text-xs font-bold uppercase tracking-widest text-gold flex items-center gap-2">
-          <i class="ph-fill ph-lightning text-lg"></i> Core Expertise
-        </h3>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-gold flex items-center gap-2"><i class="ph-fill ph-lightning text-lg"></i> Core Expertise</h3>
         <span class="text-[10px] text-muted normal-case opacity-50 bg-bento-bg px-2 py-1 rounded border border-bento-border">Klik untuk detail</span>
       </div>
       <div class="grid grid-cols-2 gap-4">

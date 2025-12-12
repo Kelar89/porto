@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function(){
         document.getElementById('modal-body').innerHTML = `
             <p class="text-base text-muted mb-6">${data.desc}</p>
             <div class="bg-bento-bg p-6 rounded-xl border border-bento-border">
-                <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-4">Scope of Work:</h4>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-4">Job Scope:</h4>
                 <ul class="space-y-3 text-sm text-gray-400">${listHtml}</ul>
             </div>`;
             
