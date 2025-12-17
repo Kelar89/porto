@@ -20,6 +20,21 @@
 }
 .animate-pulse-glow { animation: pulseGlow 2s infinite; }
 
+/* NEW: PULSING BORDER GLOW FOR LOADER */
+@keyframes pulseBorderGlow {
+    0%, 100% {
+        border-color: rgba(212, 175, 55, 0.3); /* Gold redup */
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+    }
+    50% {
+        border-color: rgba(212, 175, 55, 1); /* Gold terang */
+        box-shadow: 0 0 35px rgba(212, 175, 55, 0.7); /* Shadow terang */
+    }
+}
+.animate-pulse-border {
+    animation: pulseBorderGlow 2s infinite ease-in-out;
+}
+
 /* SCROLLBAR */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
