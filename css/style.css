@@ -20,7 +20,7 @@
 }
 .animate-pulse-glow { animation: pulseGlow 2s infinite; }
 
-/* NEW: PULSING BORDER GLOW FOR LOADER */
+/* PULSING BORDER GLOW FOR LOADER */
 @keyframes pulseBorderGlow {
     0%, 100% {
         border-color: rgba(212, 175, 55, 0.3); /* Gold redup */
@@ -35,6 +35,15 @@
     animation: pulseBorderGlow 2s infinite ease-in-out;
 }
 
+/* VISUAL LOADING BAR ANIMATION (5 Detik) */
+@keyframes loadBarWidth {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+#loading-bar-visual {
+    animation: loadBarWidth 5s ease-in-out forwards;
+}
+
 /* SCROLLBAR */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -44,7 +53,7 @@
 .custom-scrollbar::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
 
-/* LOADING BAR (NEW STYLE) */
+/* LOADING BAR CONTAINER */
 .loaded #loading-bar-container {
     opacity: 0;
     pointer-events: none;

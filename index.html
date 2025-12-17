@@ -7,7 +7,8 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600&family=Outfit:wght@500;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+  
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -25,7 +26,8 @@
           },
           fontFamily: { 
             sans: ['DM Sans', 'sans-serif'],
-            display: ['Outfit', 'sans-serif']
+            display: ['Outfit', 'sans-serif'],
+            bebas: ['Bebas Neue', 'sans-serif'] /* Font Baru */
           },
           aspectRatio: { 
             '2/3': '2 / 3',
@@ -41,15 +43,25 @@
 <body class="bg-bento-bg text-white font-sans antialiased p-4 md:p-12 min-h-screen flex flex-col items-center selection:bg-gold selection:text-black">
 
   <div id="loading-screen" class="fixed inset-0 bg-bento-bg z-[9999] flex flex-col items-center justify-center transition-opacity duration-700">
-    <div class="relative mb-8 flex items-center justify-center">
-        <div class="relative w-40 md:w-48 aspect-[8/10] rounded-2xl overflow-hidden z-10 bg-bento-card animate-pulse-border border-2 border-gold/30">
+    
+    <div class="relative mb-6 flex items-center justify-center">
+        <div class="relative w-36 md:w-44 aspect-[8/10] rounded-lg overflow-hidden z-10 bg-bento-card animate-pulse-border border-[3px] border-gold">
             <img src="images/profile.png" onerror="this.src='https://placehold.co/800x1000/111/444?text=Ami'" class="w-full h-full object-cover" alt="Ami Umar Loading">
         </div>
     </div>
     
-    <div class="text-center relative z-10">
-        <h2 class="font-display font-bold text-xl md:text-2xl text-white tracking-wider mb-2 uppercase">Ami Umar</h2>
-        <p class="text-[10px] md:text-xs text-gold font-mono tracking-[0.3em] border-t border-gold/30 pt-2 animate-pulse">DIGITAL SPECIALIST</p>
+    <div class="text-center relative z-10 flex flex-col items-center">
+        <h2 class="font-bebas text-5xl md:text-7xl text-white tracking-wide leading-none mb-2 uppercase drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+          AMI UMAR
+        </h2>
+        
+        <p class="text-[10px] md:text-xs text-gold font-sans font-bold tracking-[0.4em] uppercase mb-6">
+          Digital Specialist
+        </p>
+
+        <div class="w-48 h-1.5 bg-[#222] rounded-full overflow-hidden relative">
+            <div id="loading-bar-visual" class="h-full bg-gold shadow-[0_0_15px_#D4AF37] w-0 absolute top-0 left-0"></div>
+        </div>
     </div>
   </div>
 
@@ -68,8 +80,8 @@
       </div>
 
       <div class="relative z-10 text-center md:text-left mt-28 md:mt-48 pt-4 md:pt-0">
-        <h1 class="font-display text-5xl md:text-7xl font-extrabold mb-2 tracking-tight leading-none text-white">
-          Ami Umar.
+        <h1 class="font-bebas text-6xl md:text-8xl mb-2 tracking-wide leading-none text-white">
+          AMI UMAR.
         </h1>
         <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
           <span class="h-px w-8 md:w-12 bg-gold"></span>
@@ -102,26 +114,26 @@
               <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
             </span>
         </div>
-        <h3 class="font-display text-xs font-bold uppercase tracking-widest text-green-400">Siap Tempur</h3>
+        <h3 class="font-bebas text-xl tracking-wider text-green-400">Siap Tempur</h3>
       </div>
       <div class="bg-bento-card border border-bento-border rounded-[1.5rem] p-5 flex flex-col items-center justify-center relative overflow-hidden group hover:border-warning/50 transition-all text-center">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8rem] font-black text-warning/5 leading-none select-none pointer-events-none transition-transform group-hover:scale-110 z-0">3</div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8rem] font-bebas text-warning/5 leading-none select-none pointer-events-none transition-transform group-hover:scale-110 z-0">3</div>
         <div class="relative z-10 flex flex-col items-center">
             <div class="inline-flex items-center gap-2 bg-warning/10 px-2 py-1 rounded-full border border-warning/20 mb-2">
                 <i class="ph-fill ph-fire text-warning text-xs animate-pulse"></i>
                 <span class="text-[9px] font-bold text-warning uppercase tracking-wider">High Demand</span>
             </div>
-            <h3 class="font-display text-3xl font-black text-white leading-none mb-1">3 Slot</h3>
+            <h3 class="font-bebas text-4xl text-white leading-none mb-1">3 Slot</h3>
             <p class="text-[9px] text-muted uppercase tracking-wider font-bold">Tersisa Bulan Ini</p>
         </div>
       </div>
       <div class="bg-bento-card border border-bento-border rounded-[1.5rem] p-5 flex flex-col items-center justify-center relative overflow-hidden group hover:border-blue-500/50 transition-all text-center">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8rem] font-black text-blue-500/5 leading-none select-none pointer-events-none transition-transform group-hover:scale-110 z-0">5</div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8rem] font-bebas text-blue-500/5 leading-none select-none pointer-events-none transition-transform group-hover:scale-110 z-0">5</div>
         <div class="relative z-10 flex flex-col items-center">
             <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 mb-2">
                 <i class="ph-fill ph-medal text-xl"></i>
             </div>
-            <h3 class="font-display text-2xl font-bold text-white leading-none mb-1"><span class="text-blue-400">5+</span> Tahun</h3>
+            <h3 class="font-bebas text-4xl text-white leading-none mb-1"><span class="text-blue-400">5+</span> Tahun</h3>
             <p class="text-[9px] text-muted uppercase tracking-wider font-bold">Teruji di Lapangan</p>
         </div>
       </div>
@@ -279,7 +291,7 @@
               <div class="absolute inset-0 bg-gold/20 rounded-full blur-xl animate-pulse"></div>
               <img src="images/profile.png" onerror="this.src='https://placehold.co/150x150/222/ddd?text=Ami'" class="w-full h-full object-cover rounded-full border-2 border-gold relative z-10">
           </div>
-          <h2 class="text-4xl font-display font-bold text-white mb-2">Ami Umar</h2>
+          <h2 class="font-bebas text-5xl font-bold text-white mb-2 tracking-wide">AMI UMAR</h2>
           <p class="text-gold text-xs font-bold uppercase tracking-[0.2em] mb-6">Digital Growth Partner</p>
           <p class="text-muted text-sm max-w-sm mb-8 leading-relaxed">
             Mitra strategis untuk pebisnis yang menolak stagnan. Saatnya bisnis Anda berlari lebih kencang.
